@@ -60,13 +60,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSProjectCharacter); \
 
 #define FPSProject_Source_FPSProject_FPSProjectCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Mesh1P() { return STRUCT_OFFSET(AFPSProjectCharacter, Mesh1P); } \
+	FORCEINLINE static uint32 __PPO__PParticle() { return STRUCT_OFFSET(AFPSProjectCharacter, PParticle); } \
+	FORCEINLINE static uint32 __PPO__GunParticle() { return STRUCT_OFFSET(AFPSProjectCharacter, GunParticle); } \
 	FORCEINLINE static uint32 __PPO__FP_Gun() { return STRUCT_OFFSET(AFPSProjectCharacter, FP_Gun); } \
 	FORCEINLINE static uint32 __PPO__FP_MuzzleLocation() { return STRUCT_OFFSET(AFPSProjectCharacter, FP_MuzzleLocation); } \
-	FORCEINLINE static uint32 __PPO__VR_Gun() { return STRUCT_OFFSET(AFPSProjectCharacter, VR_Gun); } \
-	FORCEINLINE static uint32 __PPO__VR_MuzzleLocation() { return STRUCT_OFFSET(AFPSProjectCharacter, VR_MuzzleLocation); } \
-	FORCEINLINE static uint32 __PPO__FirstPersonCameraComponent() { return STRUCT_OFFSET(AFPSProjectCharacter, FirstPersonCameraComponent); } \
-	FORCEINLINE static uint32 __PPO__R_MotionController() { return STRUCT_OFFSET(AFPSProjectCharacter, R_MotionController); } \
-	FORCEINLINE static uint32 __PPO__L_MotionController() { return STRUCT_OFFSET(AFPSProjectCharacter, L_MotionController); }
+	FORCEINLINE static uint32 __PPO__FirstPersonCameraComponent() { return STRUCT_OFFSET(AFPSProjectCharacter, FirstPersonCameraComponent); }
 
 
 #define FPSProject_Source_FPSProject_FPSProjectCharacter_h_17_PROLOG

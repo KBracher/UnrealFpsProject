@@ -23,12 +23,12 @@ AFPSProjectProjectile::AFPSProjectProjectile()
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
 	ProjectileMovement->UpdatedComponent = CollisionComp;
 	ProjectileMovement->InitialSpeed = 10000.f;
-	ProjectileMovement->MaxSpeed = 10000.f;
+	ProjectileMovement->MaxSpeed = 30000.f;
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = true;
 
 	// Die after 3 seconds by default
-	InitialLifeSpan = 30.0f;
+	InitialLifeSpan = 3.0f;
 }
 
 void AFPSProjectProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

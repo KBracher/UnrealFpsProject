@@ -14,4 +14,13 @@ AFPSProjectGameMode::AFPSProjectGameMode()
 
 	// use our custom HUD class
 	HUDClass = AFPSProjectHUD::StaticClass();
+
+
+}
+
+void AFPSProjectGameMode::Tick(float DeltaTime)
+{
+
+	nbWave++;
+
 }
