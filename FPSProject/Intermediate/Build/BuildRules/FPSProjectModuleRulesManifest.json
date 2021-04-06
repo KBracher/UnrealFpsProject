@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\GIT\\UnrealFpsProject\\FPSProject\\Source\\FPSProject\\FPSProject.Build.cs",
+		"D:\\GIT\\UnrealFpsProject\\FPSProject\\Source\\FPSProject.Target.cs",
+		"D:\\GIT\\UnrealFpsProject\\FPSProject\\Source\\FPSProjectEditor.Target.cs"
+	],
+	"EngineVersion": "4.26.1"
+}
