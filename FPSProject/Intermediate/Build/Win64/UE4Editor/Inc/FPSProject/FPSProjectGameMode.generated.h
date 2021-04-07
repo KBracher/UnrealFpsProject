@@ -58,7 +58,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSProjectGameMode); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFPSProjectGameMode)
 
 
-#define FPSProject_Source_FPSProject_FPSProjectGameMode_h_13_PRIVATE_PROPERTY_OFFSET
+#define FPSProject_Source_FPSProject_FPSProjectGameMode_h_13_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__ActorToSpawn() { return STRUCT_OFFSET(AFPSProjectGameMode, ActorToSpawn); }
+
+
 #define FPSProject_Source_FPSProject_FPSProjectGameMode_h_10_PROLOG
 #define FPSProject_Source_FPSProject_FPSProjectGameMode_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

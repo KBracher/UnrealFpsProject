@@ -1,0 +1,3 @@
+D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Definitions.FPSProject.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\Weapon.h
+D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Inc\FPSProject\Weapon.generated.h

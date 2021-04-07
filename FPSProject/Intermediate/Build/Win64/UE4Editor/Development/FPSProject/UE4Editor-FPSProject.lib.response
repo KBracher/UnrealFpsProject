@@ -14,6 +14,7 @@
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectGameMode.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectHUD.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectProjectile.cpp.obj"
+"D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Weapon.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Enemy.gen.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Enemy_Controller.gen.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProject.init.gen.cpp.obj"
@@ -21,6 +22,7 @@
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectGameMode.gen.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectHUD.gen.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\FPSProjectProjectile.gen.cpp.obj"
+"D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Weapon.gen.cpp.obj"
 "D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\Default.rc2.res"
 /OUT:"D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Development\FPSProject\UE4Editor-FPSProject.lib"
 /INCLUDE:IMPLEMENT_MODULE_FPSProject

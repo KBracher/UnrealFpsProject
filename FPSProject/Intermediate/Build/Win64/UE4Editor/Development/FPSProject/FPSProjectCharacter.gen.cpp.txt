@@ -2,6 +2,8 @@ D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Developmen
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject/FPSProjectCharacter.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\Weapon.h
+D:\GIT\UnrealFpsProject\FPSProject\Intermediate\Build\Win64\UE4Editor\Inc\FPSProject\Weapon.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h

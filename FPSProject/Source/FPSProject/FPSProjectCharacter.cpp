@@ -166,7 +166,6 @@ void AFPSProjectCharacter::OnFire()
 			UE_LOG(LogTemp, Log, TEXT("You hit : %s"), *(ActorHit->GetName()));
 			UGameplayStatics::SpawnEmitterAtLocation(World, PParticle, Hit.Location);
 			if (Cast<AEnemy>(ActorHit)) {
-				UE_LOG(LogTemp, Log, TEXT("OUCH "));
 				(Cast<AEnemy>(ActorHit))->hurt(10);
 			}
 		}

@@ -1,7 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
-
-#include "UObject/ConstructorHelpers.h"
 #include "FPSProjectHUD.h"
+#include "UObject/ConstructorHelpers.h"
 #include "Engine/Canvas.h"
 #include "Engine/Texture2D.h"
 #include "TextureResource.h"
@@ -35,15 +34,13 @@ void AFPSProjectHUD::DrawHUD()
 	// draw the crosshair
 	FCanvasTileItem TileItem( CrosshairDrawPosition, CrosshairTex->Resource, FLinearColor::White);
 
-	AFPSProjectGameMode * MyMode = Cast< AFPSProjectGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	FString text = "Wave  : " + FString::FromInt(MyMode->nbWave);
-	DrawText(text, FLinearColor::Black, Hd.X, Hd.Y, NULL, 2.0, false);
+	//AFPSProjectGameMode * MyMode = Cast<AFPSProjectGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+
+	//FString text = "Wave  : " + FString::FromInt(MyMode->nbWave);
+	//DrawText(text, FLinearColor::Black, Hd.X, Hd.Y, NULL, 2.0, false);
 
 	TileItem.BlendMode = SE_BLEND_Translucent;
 	Canvas->DrawItem( TileItem );
 }
 
-void AFPSProjectHUD::WaveUpdate()
-{
 
-}

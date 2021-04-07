@@ -12,12 +12,20 @@ class AFPSProjectGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditDefaultsOnly, Category = Spawning)
+	TSubclassOf<AActor> ActorToSpawn;
+
 public:
-	int nbWave ;
-	TList<AEnemy>* enemies;
+	int nbWave = 0;
+	int nbSpawnWave = 1;
 	AFPSProjectGameMode();
 
-	virtual void Tick(float DeltaTime) override;
+	virtual void BeginPlay() override;
+	void UpdateEnemy();
+	void SpawnEnemy();
+	
+
+
 };
 
 

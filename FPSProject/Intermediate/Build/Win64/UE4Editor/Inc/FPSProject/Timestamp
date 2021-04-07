@@ -1,6 +1,7 @@
 D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\Enemy.h
 D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\Enemy_Controller.h
-D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectCharacter.h
-D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectProjectile.h
-D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectGameMode.h
 D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectHUD.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectProjectile.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\Weapon.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectGameMode.h
+D:\GIT\UnrealFpsProject\FPSProject\Source\FPSProject\FPSProjectCharacter.h

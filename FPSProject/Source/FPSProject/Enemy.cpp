@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
 #include "FPSProjectCharacter.h"
+#include "FPSProjectGameMode.h"
 #include <Runtime/Engine/Classes/Kismet/KismetMathLibrary.h>
 // Sets default values
 AEnemy::AEnemy()
@@ -17,7 +18,7 @@ AEnemy::AEnemy()
 	Mesh1P->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
 
-	hp = 100;
+	hp = 50;
 	speed = 200;
 }
 
@@ -43,13 +44,6 @@ void AEnemy::BeginPlay()
 	
 }
 
-void AEnemy::MoveForward(float Val)
-{
-}
-
-void AEnemy::MoveRight(float Val)
-{
-}
 
 // Called every frame
 void AEnemy::Tick(float DeltaTime)
@@ -65,7 +59,6 @@ void AEnemy::Tick(float DeltaTime)
 		FVector dir =FVector(Dirx, DirY, 0.0f);
 		dir.Normalize();
 		this->SetActorLocation(GetActorLocation() + dir * speed *DeltaTime);
-
 	
 	}
 		
@@ -73,5 +66,7 @@ void AEnemy::Tick(float DeltaTime)
 
 void AEnemy::Death()
 {
+	AFPSProjectGameMode* GameMode = (AFPSProjectGameMode*)GetWorld()->GetAuthGameMode();
+	GameMode->UpdateEnemy();
 	this->Destroy();
 }

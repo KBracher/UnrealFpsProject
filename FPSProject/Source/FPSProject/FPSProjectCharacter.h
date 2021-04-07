@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Weapon.h"
 #include "GameFramework/Character.h"
 #include "FPSProjectCharacter.generated.h"
 
@@ -73,6 +74,12 @@ public:
 	/** AnimMontage to play each time we fire */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	UAnimMontage* FireAnimation;
+
+	/*UPROPERTY(EditDefaultsOnly, Category = Weapons)
+	TSubclassOf<AWeapon> Weapon1;
+
+	UPROPERTY(EditDefaultsOnly, Category = Weapons)
+	TSubclassOf<AWeapon> Weapon2;*/
 
 
 protected:
