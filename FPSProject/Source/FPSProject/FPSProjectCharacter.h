@@ -75,20 +75,34 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	UAnimMontage* FireAnimation;
 
-	/*UPROPERTY(EditDefaultsOnly, Category = Weapons)
+	UPROPERTY(EditDefaultsOnly, Category = Weapons)
 	TSubclassOf<AWeapon> Weapon1;
 
 	UPROPERTY(EditDefaultsOnly, Category = Weapons)
-	TSubclassOf<AWeapon> Weapon2;*/
+	TSubclassOf<AWeapon> Weapon2;
 
+	AWeapon* currentWeapon;
+
+private:
+
+	TArray<AWeapon*> weapons;
+	
+
+	bool isFiring;
+	bool isReloading = false;
 
 protected:
 	
-	/** Fires a projectile. */
 	void OnFire();
+	void StopFire();
+
+	void Reload();
 
 	void ToggleCrouch();
 
+	void TakeVandal();
+
+	void TakeDeagle();
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
@@ -125,6 +139,6 @@ public:
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
-
+	virtual void Tick(float DeltaTime) override;
 };
 

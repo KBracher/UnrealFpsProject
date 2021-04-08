@@ -14,7 +14,7 @@ class FPSPROJECT_API AWeapon : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWeapon();
-
+	
 	UPROPERTY(EditDefaultsOnly, Category = WeaponProperty)
 	float damage;
 
@@ -25,10 +25,16 @@ public:
 	float reloadTime;
 
 	UPROPERTY(EditDefaultsOnly, Category = WeaponProperty)
-	int barrelSize;
+	int ammoMax;
 
 	UPROPERTY(EditDefaultsOnly, Category = WeaponProperty)
 	float fireRate;
+
+	UPROPERTY(EditAnywhere, Category = WeaponProperty)
+	float lastShot;
+
+	UPROPERTY(EditDefaultsOnly, Category = WeaponProperty)
+	int currentAmmo;
 
 protected:
 	// Called when the game starts or when spawned

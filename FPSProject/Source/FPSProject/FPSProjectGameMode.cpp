@@ -26,7 +26,7 @@ void AFPSProjectGameMode::UpdateEnemy()
 	ClassToFind = AEnemy::StaticClass();
 	TArray<AActor*> FoundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ClassToFind, FoundActors);
-	if (FoundActors.Num() == 1) {
+	if (FoundActors.Num() <= 1) {
 		
 		SpawnEnemy();
 	}

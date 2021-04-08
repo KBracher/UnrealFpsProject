@@ -26,6 +26,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSProjectCharacter() {}
 	FPSPROJECT_API UClass* Z_Construct_UClass_AFPSProjectProjectile_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
+	FPSPROJECT_API UClass* Z_Construct_UClass_AWeapon_NoRegister();
 // End Cross Module References
 	void AFPSProjectCharacter::StaticRegisterNativesAFPSProjectCharacter()
 	{
@@ -88,6 +89,14 @@ void EmptyLinkFunctionForGeneratedCodeFPSProjectCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireAnimation_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireAnimation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Weapon1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_Weapon1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Weapon2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_Weapon2;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -212,6 +221,20 @@ void EmptyLinkFunctionForGeneratedCodeFPSProjectCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_FireAnimation = { "FireAnimation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSProjectCharacter, FireAnimation), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_FireAnimation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_FireAnimation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon1_MetaData[] = {
+		{ "Category", "Weapons" },
+		{ "ModuleRelativePath", "FPSProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon1 = { "Weapon1", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSProjectCharacter, Weapon1), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon2_MetaData[] = {
+		{ "Category", "Weapons" },
+		{ "ModuleRelativePath", "FPSProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon2 = { "Weapon2", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFPSProjectCharacter, Weapon2), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon2_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSProjectCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Mesh1P,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_PParticle,
@@ -225,6 +248,8 @@ void EmptyLinkFunctionForGeneratedCodeFPSProjectCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_ProjectileClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_FireSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_FireAnimation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSProjectCharacter_Statics::NewProp_Weapon2,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFPSProjectCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFPSProjectCharacter>::IsAbstract,
@@ -253,7 +278,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSProjectCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSProjectCharacter, 1317006394);
+	IMPLEMENT_CLASS(AFPSProjectCharacter, 1501170109);
 	template<> FPSPROJECT_API UClass* StaticClass<AFPSProjectCharacter>()
 	{
 		return AFPSProjectCharacter::StaticClass();
