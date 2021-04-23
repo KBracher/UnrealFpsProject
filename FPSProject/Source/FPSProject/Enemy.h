@@ -17,12 +17,19 @@ class FPSPROJECT_API AEnemy : public AActor
 private :
 	float hp;
 	float speed;
+	int damage = 10;
+
+	float lastAttack=0;
+	float attackSpeed = 1.5;
 public:	
 	// Sets default values for this actor's properties
 	AEnemy();
 	float getHp();
 	void hurt(float val);
 	void Death();
+
+	void Attack();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -33,3 +40,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 };
+
+

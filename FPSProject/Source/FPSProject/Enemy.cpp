@@ -5,6 +5,7 @@
 #include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
 #include "FPSProjectCharacter.h"
 #include "FPSProjectGameMode.h"
+#include "Components/CapsuleComponent.h"
 #include <Runtime/Engine/Classes/Kismet/KismetMathLibrary.h>
 // Sets default values
 AEnemy::AEnemy()
@@ -20,6 +21,7 @@ AEnemy::AEnemy()
 
 	hp = 100;
 	speed = 200;
+
 }
 
 float AEnemy::getHp()
@@ -30,17 +32,18 @@ float AEnemy::getHp()
 void AEnemy::hurt(float val)
 {
 	hp -= val;
-	UE_LOG(LogTemp, Log, TEXT("HP RESTANT : %f"), hp);
 	if (hp <= 0) {
 		Death();
 	}
 }
 
 
+
 // Called when the game starts or when spawned
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	
 }
 
@@ -57,16 +60,31 @@ void AEnemy::Tick(float DeltaTime)
 		float DirY = MyCharacter->GetActorLocation().Y - this->GetActorLocation().Y;
 
 		FVector dir =FVector(Dirx, DirY, 0.0f);
+		if (abs(dir.X) + abs(dir.Y) <= 100 && lastAttack+attackSpeed <= GetGameTimeSinceCreation()) {
+			Attack();
+			lastAttack = GetGameTimeSinceCreation();
+		}
 		dir.Normalize();
 		this->SetActorLocation(GetActorLocation() + dir * speed *DeltaTime);
 	
 	}
-		
+	
+	
 }
 
 void AEnemy::Death()
 {
 	AFPSProjectGameMode* GameMode = (AFPSProjectGameMode*)GetWorld()->GetAuthGameMode();
+	AFPSProjectCharacter* MyCharacter = Cast<AFPSProjectCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	if (MyCharacter) {
+		MyCharacter->score += 100;
+	}
 	GameMode->UpdateEnemy();
 	this->Destroy();
+}
+
+void AEnemy::Attack()
+{
+	AFPSProjectCharacter* MyCharacter = Cast<AFPSProjectCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	MyCharacter->TakeDamage(damage);
 }

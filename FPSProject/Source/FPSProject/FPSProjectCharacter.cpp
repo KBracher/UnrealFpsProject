@@ -57,6 +57,14 @@ AFPSProjectCharacter::AFPSProjectCharacter()
 }
 
 
+void AFPSProjectCharacter::TakeDamage(int val)
+{
+	health -= val;
+	if (health <= 0) {
+		UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+	}
+}
+
 void AFPSProjectCharacter::BeginPlay()
 {
 	// Call the base class  
@@ -74,13 +82,19 @@ void AFPSProjectCharacter::BeginPlay()
 	w1->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 	AWeapon* w2 = GetWorld()->SpawnActor<AWeapon>(Weapon2, GetTransform(), SpawnParams);
 	w2->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+	AWeapon* w3 = GetWorld()->SpawnActor<AWeapon>(Weapon3, GetTransform(), SpawnParams);
+	w3->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+
 	w2->SetActorHiddenInGame(true);
+	w3->SetActorHiddenInGame(true);
 
 	w1->currentAmmo = w1->ammoMax;
 	w2->currentAmmo = w2->ammoMax;
+	w3->currentAmmo = w3->ammoMax;
 
 	weapons.Add(w1);
 	weapons.Add(w2);
+	weapons.Add(w3);
 
 	currentWeapon = w1;
 }
@@ -108,7 +122,7 @@ void AFPSProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 
 	PlayerInputComponent->BindAction("UseWeapon1", IE_Pressed, this, &AFPSProjectCharacter::TakeVandal);
 	PlayerInputComponent->BindAction("UseWeapon2", IE_Pressed, this, &AFPSProjectCharacter::TakeDeagle);
-
+	PlayerInputComponent->BindAction("UseWeapon3", IE_Pressed, this, &AFPSProjectCharacter::TakeRay);
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSProjectCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFPSProjectCharacter::MoveRight);
@@ -143,6 +157,7 @@ void AFPSProjectCharacter::TakeVandal()
 		currentWeapon = weapons[0];
 		weapons[0]->SetActorHiddenInGame(false);
 		weapons[1]->SetActorHiddenInGame(true);
+		weapons[2]->SetActorHiddenInGame(true);
 	}
 	
 }
@@ -153,6 +168,17 @@ void AFPSProjectCharacter::TakeDeagle()
 		currentWeapon = weapons[1];
 		weapons[0]->SetActorHiddenInGame(true);
 		weapons[1]->SetActorHiddenInGame(false);
+		weapons[2]->SetActorHiddenInGame(true);
+	}
+}
+
+void AFPSProjectCharacter::TakeRay()
+{
+	if (!isReloading) {
+		currentWeapon = weapons[2];
+		weapons[0]->SetActorHiddenInGame(true);
+		weapons[1]->SetActorHiddenInGame(true);
+		weapons[2]->SetActorHiddenInGame(false);
 	}
 }
 
@@ -199,7 +225,6 @@ void AFPSProjectCharacter::OnFire()
 		if (World->LineTraceSingleByChannel(Hit, start, end, ECollisionChannel::ECC_WorldDynamic, Params)) {
 			AActor* ActorHit = Hit.GetActor();
 			if (ActorHit) {
-				UE_LOG(LogTemp, Log, TEXT("You hit : %s"), *(ActorHit->GetName()));
 				UGameplayStatics::SpawnEmitterAtLocation(World, PParticle, Hit.Location);
 				if (Cast<AEnemy>(ActorHit)) {
 					(Cast<AEnemy>(ActorHit))->hurt(currentWeapon->damage);
@@ -227,7 +252,6 @@ void AFPSProjectCharacter::OnFire()
 		}
 
 		currentWeapon->currentAmmo--;
-		UE_LOG(LogTemp, Log, TEXT("YOUR AMMO : %d"), currentWeapon->currentAmmo);
 		if (currentWeapon->currentAmmo <= 0) {
 			Reload();
 		}

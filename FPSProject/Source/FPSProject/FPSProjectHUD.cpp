@@ -30,7 +30,11 @@ void AFPSProjectHUD::DrawHUD()
 
 	const FVector2D Hd(Canvas->ClipX - 170 , 20);
 
-	const FVector2D Bg(50, Canvas->ClipY - 100);
+	const FVector2D Bg(50, Canvas->ClipY - 50);
+
+	const FVector2D Bd(Canvas->ClipX - 170 , Canvas->ClipY - 50);
+
+	const FVector2D Hg(50, 20);
 	// offset by half the texture's dimensions so that the center of the texture aligns with the center of the Canvas
 	const FVector2D CrosshairDrawPosition( (Center.X-8),
 										   (Center.Y -8));
@@ -41,13 +45,23 @@ void AFPSProjectHUD::DrawHUD()
 	AFPSProjectGameMode * MyMode = Cast<AFPSProjectGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 
 	AFPSProjectCharacter* MyCharacter = Cast<AFPSProjectCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	FString textammo;
+	if (MyCharacter->isReloading) {
+		textammo = " RELOADING ";
+	}
+	else {
+		textammo = FString::FromInt(MyCharacter->currentWeapon->currentAmmo) + "  /  " + FString::FromInt(MyCharacter->currentWeapon->ammoMax);
+	}
+	FString textScore = "SCORE :" + FString::FromInt(MyCharacter->score);
+	DrawText(textScore, FLinearColor::Blue, Hd.X, Hd.Y, NULL, 2.0, false);
 
-	FString textammo = FString::FromInt(MyCharacter->currentWeapon->currentAmmo) +"  /  " + FString::FromInt(MyCharacter->currentWeapon->ammoMax);
-	DrawText(textammo, FLinearColor::Black, Bg.X, Bg.Y, NULL, 2.0, false);
+	FString textHp = "HP :" + FString::FromInt(MyCharacter->health);
+	DrawText(textHp, FLinearColor::Blue, Bd.X, Bd.Y, NULL, 2.0, false);
 
+	DrawText(textammo, FLinearColor::Blue, Bg.X, Bg.Y, NULL, 2.0, false);
 
 	FString text = "Wave  : " + FString::FromInt(MyMode->nbWave);
-	DrawText(text, FLinearColor::Black, Hd.X, Hd.Y, NULL, 2.0, false);
+	DrawText(text, FLinearColor::Blue, Hg.X, Hg.Y, NULL, 2.0, false);
 
 	TileItem.BlendMode = SE_BLEND_Translucent;
 	Canvas->DrawItem( TileItem );

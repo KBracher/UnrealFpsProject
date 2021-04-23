@@ -46,7 +46,11 @@ class AFPSProjectCharacter : public ACharacter
 
 public:
 	AFPSProjectCharacter();
+	bool isReloading = false;
+	int score = 0;
+	int health = 100;
 
+	void TakeDamage(int val);
 protected:
 	virtual void BeginPlay();
 
@@ -81,6 +85,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Weapons)
 	TSubclassOf<AWeapon> Weapon2;
 
+	UPROPERTY(EditDefaultsOnly, Category = Weapons)
+	TSubclassOf<AWeapon> Weapon3;
+
 	AWeapon* currentWeapon;
 
 private:
@@ -89,7 +96,6 @@ private:
 	
 
 	bool isFiring;
-	bool isReloading = false;
 
 protected:
 	
@@ -103,6 +109,8 @@ protected:
 	void TakeVandal();
 
 	void TakeDeagle();
+
+	void TakeRay();
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
